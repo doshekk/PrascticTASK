@@ -1,0 +1,265 @@
+/* General Media Queries */
+@media (max-width: 1200px) {
+    .header {
+        width: 100%;
+        left: 0;
+        top: 20px;
+    }
+
+    .nav-menu {
+        width: 100%;
+        gap: 20px;
+        position: relative;
+        left: 0;
+    }
+
+    .logo-icon {
+        width: 50px;
+        height: 20px;
+    }
+
+    .content-section {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 150px;
+    }
+
+    .image-right, .image-center {
+        width: 100%;
+        height: auto;
+    }
+
+    .cta-button {
+        width: 120px;
+        height: 40px;
+        left: 10px;
+        top: 360px;
+    }
+
+    .service-card {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .about-section {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 100%;
+    }
+
+    .portfolio-section {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 60%;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .testimony-section {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 120%;
+    }
+
+    .blog {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 150%;
+    }
+
+    .get-in-touch {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 170%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        width: 100%;
+        left: 0;
+        top: 10px;
+    }
+
+    .nav-menu {
+        display: block;
+        gap: 10px;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 15px;
+    }
+
+    .content-section {
+        width: 100%;
+        left: 0;
+        top: 100px;
+    }
+
+    .image-right, .image-center {
+        width: 100%;
+        height: 400px;
+    }
+
+    .cta-button {
+        width: 100px;
+        height: 35px;
+        left: 5px;
+        top: 300px;
+    }
+
+    .service-card {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .about-section {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 80%;
+    }
+
+    .portfolio-section {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 50%;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .testimony-section {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 100%;
+    }
+
+    .blog {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 120%;
+    }
+
+    .get-in-touch {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 150%;
+    }
+}
+
+/* Mobile-specific Media Queries */
+@media (max-width: 480px) {
+    .header {
+        width: 100%;
+        left: 0;
+        top: 5px;
+    }
+
+    .nav-menu {
+        display: block;
+        gap: 5px;
+    }
+
+    .logo-icon {
+        width: 35px;
+        height: 12px;
+    }
+
+    .content-section {
+        width: 100%;
+        left: 0;
+        top: 80px;
+    }
+
+    .image-right, .image-center {
+        width: 100%;
+        height: 300px;
+    }
+
+    .cta-button {
+        width: 90px;
+        height: 30px;
+        left: 5px;
+        top: 250px;
+    }
+
+    .service-card {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .about-section {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 70%;
+    }
+
+    .portfolio-section {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 40%;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .testimony-section {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 90%;
+    }
+
+    .blog {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 110%;
+    }
+
+    .get-in-touch {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 130%;
+    }
+}

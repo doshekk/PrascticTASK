@@ -1,0 +1,345 @@
+/* Загальний контейнер сторінки деталізації */
+.card-detail-page {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Верхній блок з заголовком та формою */
+  .top-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .top-heading {
+    font-size: 32px;
+    color: #000000;
+    margin-bottom: 10px;
+  }
+  
+  .top-subtext {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 30px;
+  }
+  
+  .email-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .email-form input[type="email"] {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px 0 0 6px;
+    width: 300px;
+    max-width: 80%;
+  }
+  
+  .email-form button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #6a1b9a;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 6px 6px 0;
+  }
+  
+  .email-form button:hover {
+    background-color: #5e3990;
+  }
+  
+  .form-note {
+    font-size: 14px;
+    color: #999;
+  }
+  
+  /* Стилі для основного контенту картки */
+  .card-detail {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .back-link {
+    text-decoration: none;
+    color: #6a1b9a;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  
+  .card-detail h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .author-date {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 20px;
+  }
+  
+  .image-container {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .description {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .card-detail p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .card-detail p strong {
+    color: #6a1b9a;
+  }
+  
+  /* ...існуючі стилі вище... */
+
+/* Нижній блок під деталями картки */
+.bottom-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.bottom-heading {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.bottom-cards {
+  display: flex;
+  flex-wrap: wrap; /* Додаємо перенесення на новий рядок */
+  justify-content: space-between;
+}
+
+.bottom-card {
+  width: 32%;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 20px; /* Додаємо відступ між рядками */
+}
+
+.bottom-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.bottom-card-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.bottom-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bottom-card h4 {
+  font-size: 20px;
+  color: #6a1b9a;
+  margin: 15px 0 10px 0;
+}
+
+.bottom-card p {
+  font-size: 14px;
+  color: #666;
+  padding: 0 10px 15px 10px;
+}
+
+.bottom-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Секція для переходу на іншу сторінку карток */
+.pagination-section {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.pagination-section button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #6a1b9a;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 10px;
+  border-radius: 6px;
+}
+
+.pagination-section button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-section span {
+  font-size: 16px;
+  color: #333;
+}
+
+.pagination-section a {
+  font-size: 16px;
+  color: #6a1b9a;
+  text-decoration: none;
+}
+
+.pagination-section a:hover {
+  text-decoration: underline;
+}
+
+/* Адаптивність для нижнього блоку */
+@media (max-width: 768px) {
+  .bottom-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bottom-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Секція недавно переглянутих карток */
+.recent-section {
+  padding: 40px 20px;
+  background-color: #f1f1f1;
+  margin-top: 40px;
+}
+
+.recent-heading {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.recent-cards-container {
+  display: flex;
+  align-items: center;
+}
+
+.recent-arrow {
+  background-color: #6a1b9a;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  margin: 0 10px;
+}
+
+.recent-arrow[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.recent-cards {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  overflow: hidden;
+}
+
+.recent-card {
+  width: 24%;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  flex: 0 0 auto; /* Забезпечує фіксовану ширину картки */
+}
+
+.recent-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.recent-card-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.recent-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recent-card h4 {
+  font-size: 18px;
+  color: #6a1b9a;
+  margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .recent-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recent-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .recent-arrow {
+    display: none; /* Приховати стрілки на маленьких екранах */
+  }
+}
+
+  
+  /* Адаптивність */
+  @media (max-width: 768px) {
+    .email-form {
+      flex-direction: column;
+    }
+  
+    .email-form input[type="email"] {
+      width: 100%;
+      border-radius: 6px 6px 0 0;
+    }
+  
+    .email-form button {
+      width: 100%;
+      border-radius: 0 0 6px 6px;
+    }
+  }
+  

@@ -1,0 +1,160 @@
+/* Стилі для сторінки категорій */
+.categories-page {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .categories-header {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    display: flex;          /* Додаємо flex-контейнер */
+    flex-direction: column; /* Встановлюємо вертикальне розташування елементів */
+    align-items: flex-start;    /* Вирівнюємо елементи по центру */
+  }
+  
+  .categories-header h2{
+    font-size: 36px;
+    color: #540e46;
+    margin-bottom: 10px;    /* Відступ між назвою і написом */
+  }
+  
+  .categories-header h1 {
+    font-size: 36px;
+    color: #000000;
+    margin-bottom: 15px;    /* Відступ між назвою і написом */
+  }
+  .categories-header p {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    margin: 0;              /* Прибираємо зайві відступи */
+  }
+  
+  
+  .categories-main {
+    display: flex;
+  }
+  
+  .categories-sidebar {
+    width: 20%;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .search-container {
+    display: flex;
+    margin-bottom: 30px;
+    left: 0px;
+  }
+  
+  .search-container input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .categories-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .categories-list li {
+    margin-bottom: 15px;
+  }
+  
+  .category-link {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s;
+  }
+  
+  .category-link:hover,
+  .category-link.active {
+    color: #6a1b9a;
+  }
+  
+  .categories-content {
+    width: 80%;
+    padding: 20px;
+  }
+  
+  .categories-cards {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .large-card {
+    background-color: #fff;
+    padding: 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+  
+  .large-card h3 {
+    font-size: 28px;
+    color: #6a1b9a;
+    margin-bottom: 20px;
+  }
+  
+  .large-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .small-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .small-card {
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+  }
+  
+  .small-card h3 {
+    font-size: 20px;
+    color: #6a1b9a;
+    margin-bottom: 15px;
+  }
+  
+  .small-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .card-category {
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .card-category strong {
+    color: #333;
+  }
+  
+  /* Адаптивність */
+  @media (max-width: 768px) {
+    .categories-main {
+      flex-direction: column;
+    }
+  
+    .categories-sidebar,
+    .categories-content {
+      width: 100%;
+    }
+  
+    .small-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  

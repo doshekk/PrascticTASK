@@ -1,0 +1,265 @@
+
+.header {
+    position: absolute;
+    width: 1156px;
+    height: 23px;
+    left: 135px;
+    top: 49px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 41px;
+    position: absolute;
+    width: 549px;
+    height: 18px;
+    left: 607px;
+    top: 2px;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-item {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: #1E1C31;
+    text-decoration: none;
+}
+
+.nav-item.active {
+    font-weight: 600;
+    color: #4270EC;
+}
+
+
+.nav-item.about {
+    letter-spacing: 0.02em;
+    width: 65px;
+}
+
+.nav-item.portfolio {
+    letter-spacing: 0.03em;
+    width: 61px;
+}
+
+.nav-item.testimony {
+    letter-spacing: 0.03em;
+    width: 76px;
+}
+
+.nav-item.news {
+    letter-spacing: 0.03em;
+    width: 39px;
+}
+
+.nav-item.contact {
+    letter-spacing: 0.03em;
+    width: 60px;
+}
+
+.logo-icon {
+    position: absolute;
+    width: 64.09px;
+    height: 19.81px;
+    left: 0;
+    top: 2px;
+    display: flex;
+    align-items: center;
+}
+
+/* First Square */
+.square {
+    width: 19.81px;
+    height: 19.81px;
+    background-color: #394149;
+    border-radius: 3px; 
+}
+
+/* First Circle */
+.circle {
+    width: 19.81px;
+    height: 19.81px;
+    background-color: #394149;
+    border-radius: 50%;
+    margin-left: 5px; 
+}
+
+/* Second Circle */
+.circle1 {
+
+}
+
+/* Second Circle */
+.circle2 {
+    
+}
+
+/* Testimony Section ----------------------------------------------------------------*/
+.testimony-section {
+    position: absolute;
+    width: 961px;
+    height: 676px;
+    left: 223px;
+    top: 188px;
+    text-align: center;
+  }
+  
+  /* Header Styles */
+  .section-subtitle {
+    position: absolute;
+    width: 84px;
+    left: 445px;
+    top: 0;
+    font: 500 14px/24px 'Poppins', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1E1C31;
+  }
+  
+  .section-title {
+    position: absolute;
+    width: 625px;
+    left: 174px;
+    top: 33px;
+    font: 600 48px/61px 'Poppins', sans-serif;
+    color: #1E1C31;
+  }
+  
+  /* Gradient Effect */
+  .gradient-blur {
+    position: absolute;
+    width: 266px;
+    height: 266px;
+    left: 353px;
+    top: 260px;
+    background: linear-gradient(180deg, rgba(65, 88, 208, 0.2) 0%, rgba(200, 80, 192, 0.2) 52.84%, rgba(255, 204, 112, 0.2) 100%);
+    filter: blur(35px);
+  }
+  
+  /* Client Avatar */
+  .client-avatar {
+    position: absolute;
+    width: 117px;
+    height: 117px;
+    left: 428px;
+    top: 269px;
+  }
+  
+  .avatar-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 50%;
+  }
+  
+  .avatar-image {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 9px;
+    top: 9px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Testimonial Text */
+  .testimonial-text {
+    position: absolute;
+    width: 499px;
+    left: 238px;
+    top: 427px;
+    font: 400 14px/22px 'Poppins', sans-serif;
+    color: #000000;
+    margin: 0;
+  }
+  
+  /* Client Info */
+  .client-info {
+    position: absolute;
+    left: 433px;
+    top: 574px;
+  }
+  
+  .client-name {
+    font: 500 14px/22px 'Poppins', sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  
+  .client-role {
+    font: 400 12px/19px 'Poppins', sans-serif;
+    color: #1E1C31;
+    margin: 4px 0 0 0;
+  }
+  
+  /* Decorative Dots */
+  .decorative-dots .dot {
+    position: absolute;
+    border-radius: 50%;
+    background: #A5A5A5;
+  }
+  
+  .dot-1 { width: 60px; height: 60px; left: 0; top: 188px; }
+  .dot-2 { width: 60px; height: 60px; right: 14px; bottom: 142px; transform: scaleX(-1); }
+  .dot-3 { width: 40px; height: 40px; left: 112px; top: 358px; }
+  .dot-4 { width: 40px; height: 40px; right: 99px; top: 333px; transform: scaleX(-1); }
+  .dot-5 { width: 40px; height: 40px; left: 30px; bottom: 133px; }
+  .dot-6 { width: 40px; height: 40px; right: 14px; top: 188px; }
+  
+  /* Navigation Dots */
+  .navigation-dots {
+    position: absolute;
+    left: 451px;
+    bottom: 0;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #B3C7F8;
+    cursor: pointer;
+  }
+  
+  .nav-dot.active {
+    width: 12px;
+    background: #4270EB;
+}
+
+/* BG Container */
+.bg-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -295px;
+    top: -267px;
+}
+
+/* Ellipse 14 */
+.ellipse-14 {
+    position: absolute;
+    width: 918px;
+    height: 918px;
+    left: -293px;
+    top: -267px;
+    background: linear-gradient(49.08deg, rgba(65, 88, 208, 0.5) 3.31%, rgba(200, 80, 192, 0.5) 57.52%, rgba(255, 204, 112, 0.5) 91.12%);
+    filter: blur(75px);
+}
+
+/* Second Ellipse 14 (different position) */
+.ellipse-14.second {
+    position: absolute;
+    width: 696px;
+    height: 696px;
+    left: 1212px;
+    top: 264px;
+    background: linear-gradient(49.08deg, rgba(65, 88, 208, 0.4) 3.31%, rgba(200, 80, 192, 0.4) 57.52%, rgba(255, 204, 112, 0.4) 91.12%);
+    filter: blur(75px);
+}
+
