@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import cardsData from './cardsData'; 
-import CategoriesPage from './CategoriesPage'; 
-import CardDetail from './CardDetail'; 
+import cardsData from './cardsData';
+import CategoriesPage from './CategoriesPage';
+import CardDetail from './CardDetail';
+import './App.css'; // Підключення CSS‑стилів
 
 const getDisplayTitle = (fullTitle) => {
   const parts = fullTitle.split(':');
@@ -16,7 +17,8 @@ const Cards = ({ searchQuery }) => {
   const cardsPerPage = 9;
 
   const filteredCards = cardsData.filter(card => {
-    const matchesCategory = selectedCategory === "all" || card.categories.includes(selectedCategory);
+    const matchesCategory =
+      selectedCategory === "all" || card.categories.includes(selectedCategory);
     const matchesSearch =
       card.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       card.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -26,35 +28,67 @@ const Cards = ({ searchQuery }) => {
   const sortedCards = [...filteredCards].sort((a, b) => {
     if (sortOption === "date-desc") return new Date(b.date) - new Date(a.date);
     if (sortOption === "date-asc") return new Date(a.date) - new Date(b.date);
-    if (sortOption === "title-asc") return getDisplayTitle(a.title).localeCompare(getDisplayTitle(b.title));
-    if (sortOption === "title-desc") return getDisplayTitle(b.title).localeCompare(getDisplayTitle(a.title));
+    if (sortOption === "title-asc")
+      return getDisplayTitle(a.title).localeCompare(getDisplayTitle(b.title));
+    if (sortOption === "title-desc")
+      return getDisplayTitle(b.title).localeCompare(getDisplayTitle(a.title));
     return 0;
   });
 
   const totalPages = Math.ceil(sortedCards.length / cardsPerPage);
-  const currentCards = sortedCards.slice((currentPage - 1) * cardsPerPage, currentPage * cardsPerPage);
+  const currentCards = sortedCards.slice(
+    (currentPage - 1) * cardsPerPage,
+    currentPage * cardsPerPage
+  );
 
   return (
     <div>
       <nav className="category-nav">
-        <ul>
-          {["all", "Design", "Product", "Software Engineering", "Customer Success"].map(category => (
-            <li key={category}>
-              <a
-                href="#"
-                className={selectedCategory === category ? "active" : ""}
-                onClick={(e) => { e.preventDefault(); setSelectedCategory(category); setCurrentPage(1); }}
-              >
-                {category}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <select value={sortOption} onChange={(e) => { setSortOption(e.target.value); setCurrentPage(1); }}>
+        <div className="categories-links">
+          <ul>
+            {["all", "Design", "Product", "Software Engineering", "Customer Success"].map(category => (
+              <li key={category}>
+                <a
+                  href="#"
+                  className={selectedCategory === category ? "active" : ""}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedCategory(category);
+                    setCurrentPage(1);
+                  }}
+                >
+                  {category}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="categories-select">
+          <select
+            value={selectedCategory}
+            onChange={(e) => {
+              setSelectedCategory(e.target.value);
+              setCurrentPage(1);
+            }}
+          >
+            {["all", "Design", "Product", "Software Engineering", "Customer Success"].map(category => (
+              <option key={category} value={category}>{category}</option>
+            ))}
+          </select>
+        </div>
+
+        <select
+          value={sortOption}
+          onChange={(e) => {
+            setSortOption(e.target.value);
+            setCurrentPage(1);
+          }}
+        >
           <option value="date-desc">Дата (нові)</option>
           <option value="date-asc">Дата (старі)</option>
           <option value="title-asc">Назва (А-Z)</option>
-          <option value="title-desc">Назва (Z-А)</option>
+          <option value="title-desc">Назва (Z-A)</option>
         </select>
       </nav>
 
@@ -64,17 +98,31 @@ const Cards = ({ searchQuery }) => {
             <Link to={`/cards/${card.id}`} className="card-link">
               <h3>{getDisplayTitle(card.title)}</h3>
               <p>{card.description}</p>
-              <p><strong>{card.author}</strong> - {card.date}</p>
-              <div className="card-category"><strong>Категорії: </strong>{card.categories.join(', ')}</div>
+              <p>
+                <strong>{card.author}</strong> - {card.date}
+              </p>
+              <div className="card-category">
+                <strong>Категорії: </strong>{card.categories.join(', ')}
+              </div>
             </Link>
           </div>
         ))}
       </section>
 
       <div className="pagination">
-        <button onClick={() => setCurrentPage(p => Math.max(p - 1, 1))} disabled={currentPage === 1}>Previous</button>
+        <button
+          onClick={() => setCurrentPage(p => Math.max(p - 1, 1))}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
         <span>Page {currentPage}</span>
-        <button onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))} disabled={currentPage === totalPages}>Next</button>
+        <button
+          onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
@@ -82,19 +130,39 @@ const Cards = ({ searchQuery }) => {
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <Router>
       <header>
         <div className="logo">Untitled UI</div>
-        <nav>
+        <button
+          className="menu-toggle"
+          aria-label="Відкрити меню"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
+        <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
           <ul>
-            <li><Link to="/">Products</Link></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">About</a></li>
-            <li><Link to="/categories">Categories</Link></li>
+            <li>
+              <Link to="/" onClick={() => setMenuOpen(false)}>Products</Link>
+            </li>
+            <li>
+              <a href="#" onClick={() => setMenuOpen(false)}>Services</a>
+            </li>
+            <li>
+              <a href="#" onClick={() => setMenuOpen(false)}>Pricing</a>
+            </li>
+            <li>
+              <a href="#" onClick={() => setMenuOpen(false)}>Resources</a>
+            </li>
+            <li>
+              <a href="#" onClick={() => setMenuOpen(false)}>About</a>
+            </li>
+            <li>
+              <Link to="/categories" onClick={() => setMenuOpen(false)}>Categories</Link>
+            </li>
           </ul>
         </nav>
         <div className="buttons">
@@ -104,29 +172,33 @@ const App = () => {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={
-            <>
-              <section className="blog-section">
-                <h3>Our blog</h3>
-                <h1>The latest writings from our team</h1>
-                <p>The latest industry news, interviews, technologies, and resources.</p>
-                <div className="search-bar">
-                  <input
-                    type="text"
-                    placeholder="Search by title"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                </div>
-              </section>
-              <Cards searchQuery={searchQuery} />
-            </>
-          } />
+          <Route
+            path="/"
+            element={
+              <>
+                <section className="blog-section">
+                  <h3>Our blog</h3>
+                  <h1>The latest writings from our team</h1>
+                  <p>
+                    The latest industry news, interviews, technologies, and resources.
+                  </p>
+                  <div className="search-bar">
+                    <input
+                      type="text"
+                      placeholder="Search by title"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </div>
+                </section>
+                <Cards searchQuery={searchQuery} />
+              </>
+            }
+          />
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/cards/:id" element={<CardDetail />} />
         </Routes>
       </main>
-
       <footer>
         <div className="newsletter">
           <h2>Join our newsletter</h2>
@@ -135,7 +207,6 @@ const App = () => {
           <button>Subscribe</button>
         </div>
         <div className="footer-links">
-          {/* Footer links go here */}
         </div>
         <div className="footer-bottom">
           <div className="logo">Untitled UI</div>

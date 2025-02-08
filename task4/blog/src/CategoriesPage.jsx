@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Додаємо імпорт Link
+import { Link } from 'react-router-dom';
 import cardsData from './cardsData';
-import './CategoriesPage.css'; // Імпортуємо стилі для сторінки категорій
+import './CategoriesPage.css';
 
 const getDisplayTitle = (fullTitle) => {
   const parts = fullTitle.split(':');
@@ -12,7 +12,7 @@ const CategoriesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const cardsPerPage = 9; // Максимально 9 карток на сторінку
+  const cardsPerPage = 9;
 
   // Фільтрація карток за категорією та пошуковим запитом
   const filteredCards = cardsData.filter((card) => {
@@ -34,14 +34,12 @@ const CategoriesPage = () => {
 
   return (
     <div className="categories-page">
-      {/* Заголовок сторінки */}
       <header className="categories-header">
         <h1>Categories</h1>
         <p>Discover articles by category</p>
       </header>
 
       <div className="categories-main">
-        {/* Бічна панель з пошуком та категоріями */}
         <aside className="categories-sidebar">
           {/* Поле пошуку */}
           <div className="search-container">
@@ -55,25 +53,30 @@ const CategoriesPage = () => {
               }}
             />
           </div>
-          {/* Список категорій */}
+
+          {/* Випадаючий список для мобільних пристроїв */}
+          <select
+            className="categories-select"
+            value={selectedCategory}
+            onChange={(e) => {
+              setSelectedCategory(e.target.value);
+              setCurrentPage(1);
+            }}
+          >
+            {['all', 'Design', 'Product', 'Software Engineering', 'Customer Success', 'Leadership', 'Management'].map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+
+          {/* Список категорій для десктопу */}
           <ul className="categories-list">
-            {[
-              'all',
-              'Design',
-              'Product',
-              'Software Engineering',
-              'Customer Success',
-              'Leadership',
-              'Management',
-            ].map((category) => (
+            {['all', 'Design', 'Product', 'Software Engineering', 'Customer Success', 'Leadership', 'Management'].map((category) => (
               <li key={category}>
                 <a
                   href="#"
-                  className={
-                    selectedCategory === category
-                      ? 'category-link active'
-                      : 'category-link'
-                  }
+                  className={selectedCategory === category ? 'category-link active' : 'category-link'}
                   onClick={(e) => {
                     e.preventDefault();
                     setSelectedCategory(category);
@@ -87,7 +90,6 @@ const CategoriesPage = () => {
           </ul>
         </aside>
 
-        {/* Секція з картками */}
         <div className="categories-content">
           <div className="categories-cards">
             {currentCards.length === 0 ? (
