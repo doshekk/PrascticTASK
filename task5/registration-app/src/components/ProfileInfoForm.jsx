@@ -64,11 +64,7 @@ const ProfileInfoForm = ({ goToNextStep }) => {
 
   const onSubmit = (data) => {
     console.log("Submitted Data:", data);
-    if (data.firstName && data.lastName && data.dateOfBirth && data.selectedCountry && data.selectedCity) {
-      goToNextStep();
-    } else {
-      alert('Please fill in all fields');
-    }
+    goToNextStep();
   };
 
   return (
@@ -87,26 +83,56 @@ const ProfileInfoForm = ({ goToNextStep }) => {
         type="text" 
         id="first-name" 
         placeholder="Your first name" 
-        {...register("firstName", { required: "First name is required" })} 
+        {...register("firstName", { 
+          required: "First name is required",
+          pattern: {
+            value: /^[A-Za-z\u0400-\u04FF\s'-]+$/,
+            message: "First name can only include letters, spaces, hyphens, and apostrophes"
+          }
+        })} 
       />
-      {errors.firstName && <span>{errors.firstName.message}</span>}
+      {errors.firstName && <span style={{ color: 'red' }}>{errors.firstName.message}</span>}
 
       <label htmlFor="last-name">Last Name</label>
       <input 
         type="text" 
         id="last-name" 
         placeholder="Your last name" 
-        {...register("lastName", { required: "Last name is required" })} 
+        {...register("lastName", { 
+          required: "Last name is required",
+          pattern: {
+            value: /^[A-Za-z\u0400-\u04FF\s'-]+$/,
+            message: "Last name can only include letters, spaces, hyphens, and apostrophes"
+          }
+        })} 
       />
-      {errors.lastName && <span>{errors.lastName.message}</span>}
+      {errors.lastName && <span style={{ color: 'red' }}>{errors.lastName.message}</span>}
 
       <label htmlFor="date-of-birth">Date of Birth</label>
       <input 
         type="date" 
         id="date-of-birth" 
-        {...register("dateOfBirth", { required: "Date of birth is required" })} 
+        {...register("dateOfBirth", { 
+          required: "Date of birth is required",
+          validate: value => {
+            const date = new Date(value);
+            const today = new Date();
+            if (date > today) {
+              return "Date of birth cannot be in the future";
+            }
+            let age = today.getFullYear() - date.getFullYear();
+            const monthDiff = today.getMonth() - date.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < date.getDate())) {
+              age--;
+            }
+            if (age < 18) {
+              return "You must be at least 18 years old";
+            }
+            return true;
+          }
+        })} 
       />
-      {errors.dateOfBirth && <span>{errors.dateOfBirth.message}</span>}
+      {errors.dateOfBirth && <span style={{ color: 'red' }}>{errors.dateOfBirth.message}</span>}
 
       <div className="input-group">
         <div className="input-field">
@@ -119,7 +145,7 @@ const ProfileInfoForm = ({ goToNextStep }) => {
               </option>
             ))}
           </select>
-          {errors.selectedCountry && <span>{errors.selectedCountry.message}</span>}
+          {errors.selectedCountry && <span style={{ color: 'red' }}>{errors.selectedCountry.message}</span>}
         </div>
         <div className="input-field">
           <label htmlFor="birth-place-city">City</label>
@@ -129,7 +155,7 @@ const ProfileInfoForm = ({ goToNextStep }) => {
               <option key={index} value={city}>{city}</option>
             ))}
           </select>
-          {errors.selectedCity && <span>{errors.selectedCity.message}</span>}
+          {errors.selectedCity && <span style={{ color: 'red' }}>{errors.selectedCity.message}</span>}
         </div>
       </div>
 

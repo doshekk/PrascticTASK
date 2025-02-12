@@ -6,11 +6,9 @@ const EmailPasswordForm = ({ goToNextStep }) => {
 
   const onSubmit = (data) => {
     console.log('Submitted Data:', data);
-
+    // Якщо форма пройшла валідацію, переходимо до наступного кроку
     if (data.email && data.password) {
       goToNextStep();
-    } else {
-      alert('Please fill in all fields');
     }
   };
 
@@ -29,9 +27,16 @@ const EmailPasswordForm = ({ goToNextStep }) => {
         type: 'email',
         id: 'email',
         placeholder: 'example@example.com',
-        ...register('email', { required: 'Email is required' })
+        ...register('email', {
+          required: 'Email is required',
+          pattern: {
+            value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+            message: 'Enter a valid email address',
+          },
+        }),
       }),
-      errors.email && React.createElement('span', null, errors.email.message),
+      errors.email &&
+        React.createElement('span', { style: { color: 'red' } }, errors.email.message),
       React.createElement(
         'label',
         { htmlFor: 'password' },
@@ -41,9 +46,16 @@ const EmailPasswordForm = ({ goToNextStep }) => {
         type: 'password',
         id: 'password',
         placeholder: '********',
-        ...register('password', { required: 'Password is required' })
+        ...register('password', {
+          required: 'Password is required',
+          minLength: {
+            value: 6,
+            message: 'Password must be at least 6 characters long',
+          },
+        }),
       }),
-      errors.password && React.createElement('span', null, errors.password.message),
+      errors.password &&
+        React.createElement('span', { style: { color: 'red' } }, errors.password.message),
       React.createElement(
         'button',
         { type: 'submit' },
